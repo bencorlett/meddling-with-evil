@@ -1,5 +1,7 @@
 <?php
 
+use App\Contracts\Repositories\SlideRepository;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +13,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (SlideRepository $slides) {
+    return view('welcome')->with('slides', $slides->all());
 });
 
 // Catch-all route for pages, must be the last one declared

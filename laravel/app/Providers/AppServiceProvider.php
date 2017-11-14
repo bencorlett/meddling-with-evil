@@ -34,5 +34,13 @@ class AppServiceProvider extends ServiceProvider
 
             return new Repositories\WordPressPageRepository($client);
         });
+
+        $this->app->bind(Contracts\Repositories\SlideRepository::class, function (Application $app) {
+            $client = new Client([
+                'base_uri' => config('services.wordpress.base_uri'),
+            ]);
+
+            return new Repositories\WordPressSlideRepository($client);
+        });
     }
 }

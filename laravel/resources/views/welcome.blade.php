@@ -59,6 +59,17 @@
                 text-transform: uppercase;
             }
 
+            .slides {
+                list-style: none;
+                padding-left: 0;
+                max-width: 40rem;
+            }
+
+            .slides img {
+                max-width: 100%;
+                height: auto;
+            }
+
             .m-b-md {
                 margin-bottom: 30px;
             }
@@ -82,13 +93,15 @@
                     Laravel
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                @if ($slides->count())
+                    <ul class="slides">
+                        @foreach ($slides as $slide)
+                            <li>
+                                <img src="{{ $slide->image_url }}" alt="{{ $slide->caption }}">
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
         </div>
     </body>
