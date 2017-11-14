@@ -35,4 +35,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'wordpress' => [
+        'base_uri' => env('WORDPRESS_BASE_URI'),
+    ],
+
 ];

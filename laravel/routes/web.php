@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Catch-all route for pages, must be the last one declared
+Route::get('{slug}', 'PagesController@show')->where('slug', '.*')->name('page');
